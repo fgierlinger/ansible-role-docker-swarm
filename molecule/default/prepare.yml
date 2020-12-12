@@ -9,10 +9,18 @@
     - role: geerlingguy.pip
       vars:
         pip_install_packages: [docker, credentials]
-    - role: geerlingguy.docker
+  tasks:
+    - name: latest docker for non RedHat based OS
+      include_role:
+        name: geerlingguy.docker
+      when: ansible_os_family != "RedHat"
+    - name: docker 19.03 for RedHat based OS
+      include_role:
+        name: geerlingguy.docker
       vars:
         docker_install_compose: no
-  tasks:
+        docker_package: docker-ce-19.03.14
+      when: ansible_os_family == "RedHat"
     - name: centos ssl-match-hostname fix
       block:
         - name: remove backports.ssl-match-hostname from pip
