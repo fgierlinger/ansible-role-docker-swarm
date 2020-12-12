@@ -21,7 +21,7 @@
         docker_install_compose: no
         docker_package: docker-ce-19.03.14
       when: ansible_os_family == "RedHat"
-    - name: centos ssl-match-hostname fix
+    - name: debian ssl-match-hostname fix
       block:
         - name: remove backports.ssl-match-hostname from pip
           pip:
@@ -31,4 +31,4 @@
           apt:
             name: python-backports.ssl-match-hostname
             state: present
-      when: ansible_os_family == 'RedHat'
+      when: ansible_os_family == 'Debian'
