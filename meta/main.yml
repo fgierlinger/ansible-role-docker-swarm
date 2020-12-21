@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: docker_swarm
   author: fgierlinger
   description: Docker Swarm for Linux.
 
