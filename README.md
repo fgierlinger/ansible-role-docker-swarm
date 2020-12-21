@@ -1,6 +1,8 @@
 Ansible Role: Docker Swarm
 ==========================
 
+![CI](https://github.com/fgierlinger/ansible-role-docker-swarm/workflows/CI/badge.svg?branch=master)
+
 An ansible role that configures a docker swarm.
 
 Requirements
