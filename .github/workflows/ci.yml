@@ -46,8 +46,6 @@ jobs:
             command: /lib/systemd/systemd
           - distro: geerlingguy/docker-debian10-ansible
             command: /lib/systemd/systemd
-          - distro: geerlingguy/docker-centos7-ansible
-            command: /lib/systemd/systemd
           - distro: geerlingguy/docker-centos8-ansible
             command: /lib/systemd/systemd
           - distro: geerlingguy/docker-ubuntu1804-ansible
