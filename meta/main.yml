@@ -30,8 +30,8 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-        - 9
-        - 10
+        - stretch
+        - buster
     - name: EL
       versions:
         - 8
