@@ -31,4 +31,4 @@
           apt:
             name: python-backports.ssl-match-hostname
             state: present
-      when: ansible_os_family == 'Debian'
+      when: ansible_distribution == 'Debian'
