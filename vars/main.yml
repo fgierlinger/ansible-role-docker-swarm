@@ -2,4 +2,4 @@
 
 # The primary manager is used to join the new nodes. If there is no existing
 # cluster, it is this host, which will be initialized first
-docker_swarm_primary_manager_name: "{{ groups['docker_swarm_manager'] | first }}"
+docker_swarm_primary_manager_name: "{{ ansible_play_hosts | first }}"
