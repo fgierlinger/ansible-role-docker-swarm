@@ -33,7 +33,7 @@
     remote_addrs: "{{ hostvars[docker_swarm_primary_manager_name].docker_swarm_addr }}"
   when:
     - not _swarm_info.docker_swarm_active
-    - "'docker_swarm_worker' in group_names"
+    - inventory_hostname != docker_swarm_primary_manager_name
 
 - name: Join swarm as manager
   docker_swarm:
@@ -43,5 +43,4 @@
     remote_addrs: "{{ hostvars[docker_swarm_primary_manager_name].docker_swarm_addr }}"
   when:
     - not _swarm_info.docker_swarm_manager
-    - "'docker_swarm_manager' in group_names"
-    - not inventory_hostname == docker_swarm_primary_manager_name
+    - inventory_hostname != docker_swarm_primary_manager_name
