@@ -34,6 +34,7 @@
   when:
     - not _swarm_info.docker_swarm_active
     - inventory_hostname != docker_swarm_primary_manager_name
+    - not docker_swarm_manager
 
 - name: Join swarm as manager
   docker_swarm:
@@ -43,4 +44,4 @@
     remote_addrs: "{{ hostvars[docker_swarm_primary_manager_name].docker_swarm_addr }}"
   when:
     - not _swarm_info.docker_swarm_manager
-    - inventory_hostname != docker_swarm_primary_manager_name
+    - docker_swarm_manager
