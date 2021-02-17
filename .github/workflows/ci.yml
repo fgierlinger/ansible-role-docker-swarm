@@ -28,7 +28,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install ansible ansible-lint!=5.0.0 yamllint
+        run: pip3 install "ansible" "ansible-lint<5.0.0" "yamllint"
 
       - name: Lint code.
         run: |
@@ -38,6 +38,7 @@ jobs:
   molecule:
     name: Molecule
     runs-on: ubuntu-latest
+    needs: lint
     strategy:
       fail-fast: false
       matrix:
