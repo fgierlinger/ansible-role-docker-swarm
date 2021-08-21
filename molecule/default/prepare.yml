@@ -8,7 +8,7 @@
   roles:
     - role: geerlingguy.pip
       vars:
-        pip_install_packages: [docker, credentials]
+        pip_install_packages: [docker, credentials, six]
     - role: geerlingguy.docker
       vars:
         docker_install_compose: no

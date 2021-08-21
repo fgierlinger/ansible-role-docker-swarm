@@ -10,6 +10,7 @@ Requirements
 
 * `docker` installed on all hosts
 * `python-docker` installed on all hosts
+* `python-six` when using debian 10 or ubuntu 18.04
 
 Both requirements can be satisfied as follows:
 
