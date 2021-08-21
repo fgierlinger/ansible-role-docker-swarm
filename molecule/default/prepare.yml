@@ -8,7 +8,7 @@
   roles:
     - role: geerlingguy.pip
       vars:
-        pip_install_packages: 
+        pip_install_packages:
           - name: pip
             version: latest
           - name: six
