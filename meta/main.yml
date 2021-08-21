@@ -30,7 +30,7 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-        - stretch
+        - bullseye
         - buster
     - name: EL
       versions:
