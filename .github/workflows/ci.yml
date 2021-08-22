@@ -43,8 +43,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - distro: geerlingguy/docker-debian11-ansible
-            command: /lib/systemd/systemd
+          #- distro: geerlingguy/docker-debian11-ansible
+          #  command: /lib/systemd/systemd
           - distro: geerlingguy/docker-debian10-ansible
             command: /lib/systemd/systemd
           - distro: geerlingguy/docker-centos8-ansible
