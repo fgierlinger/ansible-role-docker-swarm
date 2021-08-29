@@ -8,19 +8,12 @@
   roles:
     - role: geerlingguy.pip
       vars:
-        pip_install_packages: [docker, credentials]
+        pip_install_packages:
+          - name: pip
+            version: latest
+          - name: six
+          - name: credentials
+          - name: docker
     - role: geerlingguy.docker
       vars:
         docker_install_compose: no
-  tasks:
-    - name: debian ssl-match-hostname fix
-      block:
-        - name: remove backports.ssl-match-hostname from pip
-          pip:
-            name: backports.ssl-match-hostname
-            state: absent
-        - name: install backports.ssl-match-hostname via apt
-          apt:
-            name: python-backports.ssl-match-hostname
-            state: present
-      when: ansible_distribution == 'Debian'

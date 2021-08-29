@@ -1,7 +1,8 @@
 ---
 
-# Network interface docker swarm will communicate over
-docker_swarm_network_interface: eth0
+# Network interface docker swarm will communicate over. Use the reported default
+# network interface, fallback to eth0
+docker_swarm_network_interface: "{{ ansible_default_ipv4.alias|default('eth0') }}"
 
 # Port docker swarm will communicate on
 docker_swarm_port: 2377
