@@ -29,8 +29,25 @@ Available variables are listed below, along with default values.
 
     docker_swarm_network_interface: eth0
     docker_swarm_port: 2377
+    docker_swarm_manager: false
 
-A dedicated master node is used to form the cluster. This node is called primary master and can be set with the `docker_swarm_primary_master_name` variable. The name must match the ansible inventory node name. As default the first member of the current play hosts is taken.
+The first host of the inventory is always used as master node. If another host
+should be used to form the cluster, set `docker_swarm_primary_master_name` to
+the inventory name of one of the hosts. 
+
+WARNING! The first host is ALWAYS configured as master, nontheless the value of
+`docker_swarm_manager` for the first host.
+
+All other hosts will join the cluster as worker nodes. Set
+`docker_swarm_manager` to true for each host that should be confiugred as
+manager.If you wish to exclude a host out of the docker swarm, make sure the
+scope of the play is limited to those hosts.
+
+    # playbook.yml example
+    ---
+    - hosts: swarmMembers
+      roles:
+        - role: fgierlinger.docker_swarm
 
 Usage
 -----

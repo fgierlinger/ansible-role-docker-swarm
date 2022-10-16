@@ -6,3 +6,7 @@ docker_swarm_network_interface: "{{ ansible_default_ipv4.alias|default('eth0') }
 
 # Port docker swarm will communicate on
 docker_swarm_port: 2377
+
+# set to true on each host that should be a master, or 
+# globally if all hosts should join the swarm as master
+docker_swarm_manager: false
